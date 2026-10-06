@@ -15,11 +15,11 @@ designed to be deployed on **Streamlit Community Cloud**.
 
 | # | Project | LangChain | LangGraph | Streamlit | GitHub | Live Demo |
 |---|---------|:---------:|:---------:|:---------:|:------:|-----------|
-| 1 | RAG Document Chat | ✅ | ✅ | ✅ | ✅ | Ready for Streamlit deployment |
-| 2 | Multi-Agent Researcher | ✅ | ✅ | ✅ | ✅ | Ready for Streamlit deployment |
-| 3 | SQL Agent | ✅ | ✅ | ✅ | ✅ | Ready for Streamlit deployment |
-| 4 | Web Research Agent | ✅ | ✅ | ✅ | ✅ | Ready for Streamlit deployment |
-| 5 | Customer Support Agent | ✅ | ✅ | ✅ | ✅ | Ready for Streamlit deployment |
+| 1 | RAG Document Chat | ✅ | ✅ | ✅ | ✅ | https://blgzq8lsxwwhy2i4sotj2c.streamlit.app/ |
+| 2 | Multi-Agent Researcher | ✅ | ✅ | ✅ | ✅ | https://ifrqkxze9s9f2eshvc8t6m.streamlit.app/ |
+| 3 | SQL Agent | ✅ | ✅ | ✅ | ✅ | https://gnmadwnsqreoyqtxrmb4mv.streamlit.app/ |
+| 4 | Web Research Agent | ✅ | ✅ | ✅ | ✅ | https://langchain-langgraph-ai-lab-acevfwnkkbkxtgeyehs6tk.streamlit.app/ |
+| 5 | Customer Support Agent | ✅ | ✅ | ✅ | ✅ | https://v7jmuvfpvdkyikqqwkjrcj.streamlit.app/ |
 | 6 | Document Extraction | 🚧 | 🚧 | 🚧 | 🚧 | Planned |
 | 7 | Planner Executor | 🚧 | 🚧 | 🚧 | 🚧 | Planned |
 | 8 | Code Review | 🚧 | 🚧 | 🚧 | 🚧 | Planned |
