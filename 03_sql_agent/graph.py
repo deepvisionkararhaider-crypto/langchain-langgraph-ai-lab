@@ -1,10 +1,7 @@
 """Project 03 — SQL agent as a LangGraph.
 
-    START → introspect → generate_sql → guard ─┬─(safe)──► execute → explain → END
-                                                └─(unsafe)► refuse  ─────────► END
-
-Conditional routing means an unsafe query is stopped *before* execution and a
-friendly refusal is returned instead.
+START → introspect → generate_sql → guard ─┬─(safe)──► execute → explain → END
+                                            └─(unsafe)► refuse  ─────────► END
 """
 from __future__ import annotations
 
@@ -35,7 +32,7 @@ class SQLState(TypedDict, total=False):
     steps: Annotated[list[str], lambda a, b: (a or []) + (b or [])]
 
 
-def build_graph(connection: sqlite3.Connection, db):
+def build_graph(connection, db):
     def introspect(state: SQLState) -> dict:
         try:
             db.get_table_info()
@@ -67,12 +64,12 @@ def build_graph(connection: sqlite3.Connection, db):
 
     def explain(state: SQLState) -> dict:
         try:
-            text = explain_result(
+            explanation = explain_result(
                 state["question"], state.get("sql", ""), state.get("columns", []), state.get("rows", [])
             )
         except Exception as exc:
-            text = f"(explanation unavailable: {exc})"
-        return {"explanation": text, "steps": ["explain: done"]}
+            explanation = f"(explanation unavailable: {exc})"
+        return {"explanation": explanation, "steps": ["explain: done"]}
 
     def refuse(state: SQLState) -> dict:
         return {
@@ -100,7 +97,7 @@ def build_graph(connection: sqlite3.Connection, db):
     return g.compile()
 
 
-def ask(connection: sqlite3.Connection, db, question: str, max_rows: int = 200) -> SQLResult:
+def ask(connection, db, question: str, max_rows: int = 200) -> SQLResult:
     """Run the LangGraph SQL workflow and return a populated SQLResult."""
     graph = build_graph(connection, db)
     state: SQLState = {"question": question, "max_rows": max_rows}
