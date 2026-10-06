@@ -20,20 +20,20 @@ CREATE TABLE customers (
     name TEXT NOT NULL,
     email TEXT NOT NULL,
     country TEXT NOT NULL,
-    plan TEXT NOT NULL,           -- free | starter | pro | enterprise
+    plan TEXT NOT NULL,
     signup_date TEXT NOT NULL
 );
 CREATE TABLE products (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
-    category TEXT NOT NULL,       -- hardware | software | subscription | accessory
+    category TEXT NOT NULL,
     price REAL NOT NULL
 );
 CREATE TABLE orders (
     id INTEGER PRIMARY KEY,
     customer_id INTEGER NOT NULL,
     order_date TEXT NOT NULL,
-    status TEXT NOT NULL,         -- pending | paid | shipped | delivered | refunded
+    status TEXT NOT NULL,
     total REAL NOT NULL,
     FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
@@ -112,8 +112,7 @@ def build_engine(seed: int = 42):
                 qty = rng.randint(1, 5)
                 total += price * qty
                 conn.execute(
-                    text("INSERT INTO order_items (id,order_id,product_id,quantity,unit_price) "
-                         "VALUES (:i,:o,:p,:q,:u)"),
+                    text("INSERT INTO order_items (id,order_id,product_id,quantity,unit_price) VALUES (:i,:o,:p,:q,:u)"),
                     {"i": item_id, "o": oid, "p": prod, "q": qty, "u": price},
                 )
                 item_id += 1
@@ -122,6 +121,11 @@ def build_engine(seed: int = 42):
                 {"i": oid, "c": cust, "d": odate.isoformat(), "s": status, "t": round(total, 2)},
             )
     return engine
+
+
+def build_connections(seed: int = 42):
+    """Backward-compatible Streamlit helper; returns the SQLAlchemy engine."""
+    return build_engine(seed=seed)
 
 
 def get_langchain_db(engine, sample_rows: int = 2):
