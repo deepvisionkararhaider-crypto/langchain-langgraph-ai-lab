@@ -1,0 +1,23 @@
+# Project 01 — RAG Document Chat
+# Pinned to compatible ranges for reproducible Streamlit Community Cloud builds.
+
+# --- Core web UI ---
+streamlit>=1.36,<2.0
+
+# --- LangChain / LangGraph ---
+langchain>=0.3,<0.4
+langchain-core>=0.3
+langchain-community>=0.3
+langchain-groq>=0.2
+langchain-text-splitters>=0.3
+langgraph>=0.2.40
+
+# --- Embeddings + vector store ---
+# fastembed uses ONNX runtime (no torch) — far lighter and faster to cold-start
+# than sentence-transformers, which matters on Streamlit Community Cloud.
+fastembed>=0.3
+faiss-cpu>=1.8
+
+# --- Document loaders ---
+pypdf>=4.2
+python-docx>=1.1

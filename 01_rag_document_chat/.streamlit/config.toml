@@ -1,0 +1,13 @@
+# Streamlit configuration for Streamlit Community Cloud.
+[server]
+headless = true
+maxUploadSize = 50
+# NOTE: leave enableCORS / enableXsrfProtection at their secure defaults.
+# Setting enableCORS=false is insecure and Streamlit now warns about it.
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "light"
+primaryColor = "#4F46E5"

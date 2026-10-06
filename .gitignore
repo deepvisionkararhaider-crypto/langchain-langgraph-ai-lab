@@ -1,33 +1,51 @@
-# prod
-dist/
-
-# dev
-.yarn/
-!.yarn/releases
-.vscode/*
-!.vscode/launch.json
-!.vscode/*.code-snippets
-.idea/workspace.xml
-.idea/usage.statistics.xml
-.idea/shelf
-
-# deps
-node_modules/
-.wrangler
-
-# env
+# Secrets — NEVER commit
 .env
-.env.production
 .dev.vars
+**/.streamlit/secrets.toml
+**/secrets.toml
+!**/.streamlit/secrets.toml.example
 
-# logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.Python
+*.so
 
-# misc
+# Data / runtime artifacts
+*.sqlite3
+*.db
+*.faiss
+*.index
+*.pkl
+*.bin
+/faiss_index/
+**/data/*.json
+!**/data/*.example.json
+**/chroma/
+**/.chroma/
+
+# Notebooks / caches
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# OS / editor
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+*.log
+
+# Node (template leftovers)
+node_modules/
