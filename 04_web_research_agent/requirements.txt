@@ -1,0 +1,13 @@
+# Project 04 — Web Research Agent
+
+streamlit>=1.36,<2.0
+
+# --- LangChain / LangGraph ---
+langchain>=0.3,<0.4
+langchain-core>=0.3
+langchain-groq>=0.2
+langgraph>=0.2.40
+
+# --- Web research tools ---
+requests>=2.31
+ddgs>=9.0

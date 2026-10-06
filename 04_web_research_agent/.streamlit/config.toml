@@ -1,0 +1,11 @@
+# Streamlit configuration for Streamlit Community Cloud.
+[server]
+headless = true
+maxUploadSize = 25
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "light"
+primaryColor = "#8B5CF6"
