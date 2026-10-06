@@ -1,0 +1,13 @@
+# Project 03 — SQL Database Agent
+
+streamlit>=1.36,<2.0
+
+# --- LangChain / LangGraph ---
+langchain>=0.3,<0.4
+langchain-core>=0.3
+langchain-community>=0.3
+langchain-groq>=0.2
+langgraph>=0.2.40
+
+# --- Data ---
+pandas>=2.0
